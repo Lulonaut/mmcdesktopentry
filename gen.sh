@@ -21,9 +21,7 @@ for file in $folder/*; do
         name="${file##*/}"
         if [[ $name != _* ]]; then
             entry="[Desktop Entry]\nType=Application\nName=$name\nExec=$PROGRAM -l $name\nIcon=minecraft-launcher\nTerminal=false"
-            echo "$entry"
             path="$OUTPUT/$name.desktop"
-            echo "$path"
             if [ ! -d "$path" ]; then
                 # create it if not already present and fill it out
                 printf "$entry\n" > $path
