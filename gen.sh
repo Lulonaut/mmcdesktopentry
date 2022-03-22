@@ -20,7 +20,7 @@ for file in $folder/*; do
     if [[ -d $file ]]; then
         name="${file##*/}"
         if [[ $name != _* ]]; then
-            entry="[Desktop Entry]\nType=Application\nName=$name\nExec=$PROGRAM -l $name\nIcon=minecraft-launcher\nTerminal=false"
+            entry="[Desktop Entry]\nType=Application\nName=$name\nExec=$PROGRAM -l \"$name\"\nIcon=minecraft-launcher\nTerminal=false"
             path="$OUTPUT/$name.desktop"
             if [ ! -d "$path" ]; then
                 # create it if not already present and fill it out
