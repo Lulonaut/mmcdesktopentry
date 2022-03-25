@@ -43,11 +43,6 @@ for file in $folder/*; do
     fi
 done
 
-diff=$(printf '%s\n%s\n' "${existing_files[@]}" "${instance_files[@]}" | sort | uniq -u)
 while IFS= read -r line; do
-    if [ -z "$line" ]; then
-        break
-    fi
-    path="$OUTPUT/$line.desktop"
-    rm "$path"
-done <<< "$diff"
+    rm -f "$OUTPUT/$line.desktop"
+done <<< $(printf '%s\n%s\n' "${existing_files[@]}" "${instance_files[@]}" | sort | uniq -u)
