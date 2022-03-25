@@ -49,6 +49,5 @@ while IFS= read -r line; do
         break
     fi
     path="$OUTPUT/$line.desktop"
-    echo "$path"
     rm "$path"
 done <<< "$diff"
